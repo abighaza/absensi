@@ -3,7 +3,7 @@
 // ==========================================================================
 // Ganti URL di bawah ini dengan URL Web App dari Google Apps Script Anda (deploy -> Web App -> URL Exec)
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbz8bMqzP7HrPGHym1Nf59nHM2f53tqeFup4jmA85F4CBEmDL9y61iJjQTAnvy547qQnRg/exec";
+  "https://script.google.com/macros/s/AKfycbwySDI0P7Vl52seFtpI8MYZxlQL9CyUhWX5QE1N1nfuYwcHq_hmZSqmt4zLcucI6KlM8g/exec";
 
 fetch(API_URL + "?sheet=Siswa")
   .then((res) => res.json())

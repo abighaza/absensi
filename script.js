@@ -1,5 +1,5 @@
 // --- 1. Konfigurasi Supabase ---
-const SUPABASE_URL = "https://hylyorucbruyauahshyl.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://hylyorucbruyauahshyl.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5bHlvcnVjYnJ1eWF1YWhzaHlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyNjQzNjQsImV4cCI6MjEwMTg0MDM2NH0.-LPnYPwstUDS2YD_8I_E1AIHtSXLJAHkpCujflJXDu8";
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

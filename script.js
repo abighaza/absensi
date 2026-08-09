@@ -1,4 +1,4 @@
-// --- Konfigurasi Supabase ---
+// --- 1. Konfigurasi Supabase ---
 const SUPABASE_URL = "https://hylyorucbruyauahshyl.supabase.co/rest/v1/";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh5bHlvcnVjYnJ1eWF1YWhzaHlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyNjQzNjQsImV4cCI6MjEwMTg0MDM2NH0.-LPnYPwstUDS2YD_8I_E1AIHtSXLJAHkpCujflJXDu8";
@@ -9,7 +9,7 @@ let dataSiswaList = [];
 let dataGuruList = [];
 let currentUser = null;
 
-// --- 1. FUNGSI LOGIN ---
+// --- 2. FUNGSI LOGIN ---
 function handleLogin(e) {
   if (e) e.preventDefault();
   const role = document.getElementById("login-role").value;
@@ -62,7 +62,7 @@ function logout() {
   location.reload();
 }
 
-// --- 2. NAVIGASI ---
+// --- 3. NAVIGASI ---
 function setupNavigation(role) {
   const navLinks = document.getElementById("nav-links");
   navLinks.innerHTML = "";
@@ -115,7 +115,7 @@ function switchView(viewId, element) {
   }
 }
 
-// --- 3. JAM & TANGGAL REALTIME ---
+// --- 4. JAM & TANGGAL REALTIME ---
 setInterval(() => {
   const now = new Date();
   const clockEl = document.getElementById("live-clock");
@@ -129,7 +129,7 @@ setInterval(() => {
     });
 }, 1000);
 
-// --- 4. INISIALISASI HALAMAN & GRAFIK ---
+// --- 5. INISIALISASI HALAMAN ---
 window.addEventListener("DOMContentLoaded", () => {
   const ctx = document.getElementById("attendanceChart");
   if (ctx) {
@@ -156,7 +156,7 @@ window.addEventListener("DOMContentLoaded", () => {
   loadDataSiswaDariServer();
 });
 
-// --- 5. AMBIL & SIMPAN DATA DARI SUPABASE ---
+// --- 6. AMBIL & SIMPAN DATA DARI SUPABASE ---
 async function loadDataSiswaDariServer() {
   const { data, error } = await supabase.from("siswa").select("*");
 
@@ -182,7 +182,7 @@ async function submitDataSiswa(e) {
 
   if (error) {
     console.error("Gagal menyimpan data siswa:", error);
-    alert("Terjadi kesalahan saat menyimpan ke database.");
+    alert("Terjadi kesalahan saat menyimpan ke database: " + error.message);
   } else {
     alert("Data Siswa Berhasil Disimpan!");
     document.getElementById("form-tambah-siswa").reset();
@@ -242,7 +242,7 @@ async function hapusSiswa(id) {
   }
 }
 
-// --- 6. FUNGSI SCANNER & ABSEN ---
+// --- 7. FUNGSI SCANNER & ABSEN ---
 let html5QrCode = null;
 
 function initScanner() {
@@ -300,7 +300,7 @@ function switchCamera(mode) {
   if (html5QrCode) html5QrCode.stop().then(() => initScanner());
 }
 
-// --- 7. FUNGSI MODAL & HELPERS ---
+// --- 8. FUNGSI MODAL & HELPERS ---
 function openModalTambahSiswa() {
   document.getElementById("modal-tambah-siswa").classList.remove("hidden");
 }
